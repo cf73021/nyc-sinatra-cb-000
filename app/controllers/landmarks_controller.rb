@@ -49,30 +49,8 @@ class LandmarksController < ApplicationController
     @landmark = Landmark.find(params[:id])
     @landmark.name = params["landmark"]["name"]
     @landmark.year_completed = params["landmark"]["year_completed"]
-    if title_ids
-      @figures.titles.clear
-      title_ids.each do |id|
-        t = Title.find(id)
-        @figure.titles << t
-      end
-    end
 
-    if !title["name"].empty?
-      t = Title.create(:name => title["name"])
-      @figure.titles << t
-    end
-    if landmark_ids
-      @figure.landmarks.clear
-      landmark_ids.each do |id|
-        l = Landmark.find(id)
-        @figure.landmarks << l
-      end
-    end
-    if !landmark["name"].empty?
-       l = Landmark.create(:name => landmark["name"])
-       @figure.landmarks << l
-    end
-    @figure.save
+    @landmark.save
     redirect to "/figures/#{@figure.id}"
   end
 end
