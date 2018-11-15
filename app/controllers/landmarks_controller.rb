@@ -42,7 +42,7 @@ class LandmarksController < ApplicationController
     end
   end
 
-  post '/figures' do
+  post '/landmarks' do
     figure_name = params["figure"]["name"]
     title_name = params["title"]["name"]
     title_ids = params["figure"]["title_ids"]
