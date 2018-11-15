@@ -4,7 +4,7 @@ class LandmarksController < ApplicationController
   enable :sessions
   use Rack::Flash
 
-  get '/figures' do
+  get '/landmarks' do
     @figures = Figure.all
     erb :'/figures/index'
   end
