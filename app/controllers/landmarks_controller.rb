@@ -43,53 +43,18 @@ class LandmarksController < ApplicationController
   end
 
   post '/landmarks' do
-    figure_name = params["figure"]["name"]
-    title_name = params["title"]["name"]
-    title_ids = params["figure"]["title_ids"]
     landmark_name = params["landmark"]["name"]
     landmark_year = params["landmark"]["year"]
-    landmark_ids = params["figure"]["landmark_ids"]
 
-    if figure_name
+    if landmark_name
       @figure = Figure.new(name: figure_name)
-      if title_name != ""
-        @figure.titles << Title.find_or_create_by(name: title_name)
-      end
-      if landmark_name != ""
-        @figure.landmarks << Landmark.find_or_create_by(name: landmark_name, year_completed: landmark_year)
-      end
     else
       @error_message = "You must enter a figure name!"
       @titles = Title.all
       @landmarks = Landmark.all
       erb :'/figures/new'
     end
-      if title_ids
-        title_ids.each do |title_id|
-          title = Title.find_by(id: title_id)
-          if title
-            @figure.titles << title
-          end
-        end
-      else
-        @error_message = "You must enter a title name!"
-        @titles = Title.all
-        @landmarks = Landmark.all
-        erb :'/figures/new'
-      end
-      if landmark_ids
-        landmark_ids.each do |landmark_id|
-          landmark = Landmark.find_by(id: landmark_id)
-          if landmark
-            @figure.landmarks << landmark
-          end
-        end
-      else
-        @error_message = "You must enter a landmark name!"
-        @titles = Title.all
-        @landmarks = Landmark.all
-        erb :'/figures/new'
-      end
+
 
     @figure.save
     flash[:message] = "Successfully created figure."
