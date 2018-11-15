@@ -46,7 +46,7 @@ class LandmarksController < ApplicationController
   end
 
   patch '/landmarks/:id' do
-    @figure = Figure.find(params[:id])
+    @landmark = Figure.find(params[:id])
     @figure.name = params["figure"]["name"]
     title = params["title"]
     title_ids = params["figure"]["title_ids"]
