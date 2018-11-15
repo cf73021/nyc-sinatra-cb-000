@@ -5,8 +5,8 @@ class LandmarksController < ApplicationController
   use Rack::Flash
 
   get '/landmarks' do
-    @figures = Figure.all
-    erb :'/figures/index'
+    @landmarks = Landmark.all
+    erb :'/landmarks/index'
   end
 
   get '/figures/new' do
