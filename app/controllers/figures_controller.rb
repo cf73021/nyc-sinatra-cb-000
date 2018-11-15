@@ -116,7 +116,7 @@ class FiguresController < ApplicationController
       end
 
       @figure.titles = []
-      params["titles"].each do |title_id|
+      title_ids.each do |title_id|
         @figure.titles << Title.find(title_id)
       end
     end
