@@ -106,17 +106,31 @@ class FiguresController < ApplicationController
     landmark = params["landmark"]
     landmark_ids = params["figure"]["landmark_ids"]
 
-    if title_ids 
+    if title_ids
       @figures.titles.clear
       title_ids.each do |id|
         t = Title.find(id)
-        @figure.titles << t 
+        @figure.titles << t
       end
     end
 
+    if !@title["name"].empty?
+      t = Title.create(:name => @title["name"])
+      @figure.titles << t
+    end
+    if @landmark_ids
+      @figure.landmarks.clear
+      @landmark_ids.each do |id|
+        l = Landmark.find(id)
+        @figure.landmarks << l
+      end
+    end
+    if !@landmark["name"].empty?
+       l = Landmark.create(:name => @landmark["name"])
+       @figure.landmarks << l
+    end
     @figure.save
-    flash[:message] = "Successfully updated Figure."
-    redirect to :"/figures/#{@figure.id}"
+    redirect to "/figures/#{@figure.id}"
   end
 
 end
