@@ -19,7 +19,7 @@ class LandmarksController < ApplicationController
   end
 
   get '/landmarks/:id/edit' do
-    @figure = Landmark.find(params[:id])
+    @landmark = Landmark.find(params[:id])
 
     if @landmark
       erb :'/landmarks/edit'
