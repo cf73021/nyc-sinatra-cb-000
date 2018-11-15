@@ -114,19 +114,19 @@ class FiguresController < ApplicationController
       end
     end
 
-    if !@title["name"].empty?
-      t = Title.create(:name => @title["name"])
+    if !title["name"].empty?
+      t = Title.create(:name => title["name"])
       @figure.titles << t
     end
-    if @landmark_ids
+    if landmark_ids
       @figure.landmarks.clear
-      @landmark_ids.each do |id|
+      landmark_ids.each do |id|
         l = Landmark.find(id)
         @figure.landmarks << l
       end
     end
-    if !@landmark["name"].empty?
-       l = Landmark.create(:name => @landmark["name"])
+    if !landmark["name"].empty?
+       l = Landmark.create(:name => landmark["name"])
        @figure.landmarks << l
     end
     @figure.save
