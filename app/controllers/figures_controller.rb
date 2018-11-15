@@ -103,6 +103,16 @@ class FiguresController < ApplicationController
     figure_name = params["figure"]["name"]
     landark_name = params["landmark"]["name"]
     title_name = params["title"]["name"]
+
+    if figure_name
+      @figure.name = figure_name
+
+      @figure.landmarks = []
+      params["landmarks"].each do |landmark_id|
+        @figure.landmarks << Landmark.find(landmark_id)
+      end
+    end
+
   end
 
 end
