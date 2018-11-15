@@ -100,7 +100,7 @@ class FiguresController < ApplicationController
 
   patch '/figures/:id' do
     @figure = Figure.find(params[:id])
-    figure_name = params["figure"]["name"]
+    @figure.name = params["figure"]["name"]
     title = params["title"]
     title_ids = params["figure"]["title_ids"]
     landmark = params["landmark"]
