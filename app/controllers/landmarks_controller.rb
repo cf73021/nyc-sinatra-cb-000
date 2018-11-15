@@ -56,8 +56,8 @@ class LandmarksController < ApplicationController
 
 
     @landmark.save
-    flash[:message] = "Successfully created figure."
-    redirect to "/figures/#{@figure.id}"
+    flash[:message] = "Successfully created Landmark."
+    redirect to "/landmarks/#{@landmark.id}"
   end
 
   patch '/figures/:id' do
