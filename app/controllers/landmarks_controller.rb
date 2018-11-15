@@ -44,7 +44,7 @@ class LandmarksController < ApplicationController
 
   post '/landmarks' do
     landmark_name = params["landmark"]["name"]
-    landmark_year = params["landmark"]["year"]
+    landmark_year = params["landmark"]["year_completed"]
 
     if landmark_name
       @landmark = Landmark.new(name: landmark_name, year: landmark_year)
