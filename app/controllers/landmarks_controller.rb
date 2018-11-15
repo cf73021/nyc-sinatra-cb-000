@@ -21,19 +21,7 @@ class LandmarksController < ApplicationController
   get '/landmarks/:id/edit' do
     @figure = Landmark.find(params[:id])
 
-    if @figure.titles
-      @figure_titles = @figure.titles.name
-    else
-      @figure_titles = ""
-    end
-
-    if @figure.landmarks
-      @figure_landmarks = @figure.landmarks.name
-    else
-      @figure_landmarks = ""
-    end
-
-    if @figure
+    if @landmark
       erb :'/figures/edit'
     else
       redirect to ':/figures'
