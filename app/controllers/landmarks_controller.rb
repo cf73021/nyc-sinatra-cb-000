@@ -49,14 +49,13 @@ class LandmarksController < ApplicationController
     if landmark_name
       @landmark = Landmark.new(name: landmark_name, year_completed: landmark_year)
     else
-      @error_message = "You must enter a figure name!"
-      @titles = Title.all
+      @error_message = "You must enter a landmark name!"
       @landmarks = Landmark.all
       erb :'/figures/new'
     end
 
 
-    @figure.save
+    @landmark.save
     flash[:message] = "Successfully created figure."
     redirect to "/figures/#{@figure.id}"
   end
