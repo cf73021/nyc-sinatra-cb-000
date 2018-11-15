@@ -121,7 +121,6 @@ class FiguresController < ApplicationController
     @figure.save
     flash[:message] = "Successfully updated Figure."
     redirect to :"/figures/#{@figure.id}"
-
   end
 
 end
