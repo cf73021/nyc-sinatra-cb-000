@@ -48,11 +48,7 @@ class LandmarksController < ApplicationController
   patch '/landmarks/:id' do
     @landmark = Landmark.find(params[:id])
     @landmark.name = params["landmark"]["name"]
-    title = params["title"]
-    title_ids = params["figure"]["title_ids"]
-    landmark = params["landmark"]
-    landmark_ids = params["figure"]["landmark_ids"]
-
+    @landmark.year_completed = params["landmark"]["year_completed"]
     if title_ids
       @figures.titles.clear
       title_ids.each do |id|
