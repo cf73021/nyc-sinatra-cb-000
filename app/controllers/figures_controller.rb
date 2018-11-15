@@ -111,7 +111,7 @@ class FiguresController < ApplicationController
       @figure.name = figure_name
 
       @figure.landmarks = []
-      params["@landmarks"].each do |landmark_id|
+      params["landmarks"].each do |landmark_id|
         @figure.landmarks << Landmark.find(landmark_id)
       end
 
