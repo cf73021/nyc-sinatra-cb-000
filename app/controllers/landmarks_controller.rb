@@ -10,9 +10,7 @@ class LandmarksController < ApplicationController
   end
 
   get '/landmarks/new' do
-    @titles = Title.all
-    @landmarks = Landmark.all
-    erb :'/figures/new'
+    erb :'/landmarks/new'
   end
 
   get '/figures/:id' do
