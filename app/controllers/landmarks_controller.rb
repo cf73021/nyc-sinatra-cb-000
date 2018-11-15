@@ -47,7 +47,7 @@ class LandmarksController < ApplicationController
     landmark_year = params["landmark"]["year"]
 
     if landmark_name
-      @figure = Figure.new(name: figure_name)
+      @landmark = Landmark.new(name: figure_name)
     else
       @error_message = "You must enter a figure name!"
       @titles = Title.all
