@@ -100,27 +100,7 @@ class FiguresController < ApplicationController
 
   patch '/figures/:id' do
     @figure = Figure.find(params[:id])
-    figure_name = params["figure"]["name"]
-    title_name = params["title"]["name"]
-    title_ids = params["figure"]["title_ids"]
-    landmark_name = params["landmark"]["name"]
-    landmark_year = params["landmark"]["year"]
-    landmark_ids = params["figure"]["landmark_ids"]
-
-    if figure_name
-      @figure.name = figure_name
-
-      @figure.landmarks = []
-      landmark_ids.each do |landmark_id|
-        @figure.landmarks << Landmark.find(landmark_id)
-      end
-
-      @figure.titles = []
-      title_ids.each do |title_id|
-        @figure.titles << Title.find(title_id)
-      end
-    end
-
+    @figure.update(params[:landmark])
     @figure.save
     flash[:message] = "Successfully updated Figure."
     redirect to :"/figures/#{@figure.id}"
