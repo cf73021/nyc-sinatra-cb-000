@@ -19,9 +19,7 @@ class LandmarksController < ApplicationController
   end
 
   get '/landmarks/:id/edit' do
-    @figure = Figure.find(params[:id])
-    @titles = Title.all
-    @landmarks = Landmark.all
+    @figure = Landmark.find(params[:id])
 
     if @figure.titles
       @figure_titles = @figure.titles.name
