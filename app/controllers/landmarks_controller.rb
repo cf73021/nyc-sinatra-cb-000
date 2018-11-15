@@ -54,7 +54,6 @@ class LandmarksController < ApplicationController
       erb :'/figures/new'
     end
 
-
     @landmark.save
     flash[:message] = "Successfully created Landmark."
     redirect to "/landmarks/#{@landmark.id}"
