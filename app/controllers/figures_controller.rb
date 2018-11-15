@@ -98,6 +98,11 @@ class FiguresController < ApplicationController
     redirect to "/figures/#{@figure.id}"
   end
 
-
+  patch '/figures/:id' do
+    @figure = Figure.find(params[:id])
+    figure_name = params["figure"]["name"]
+    landark_name = params["landmark"]["name"]
+    title_name = params["title"]["name"]
+  end
 
 end
