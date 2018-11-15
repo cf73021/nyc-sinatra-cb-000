@@ -22,7 +22,7 @@ class LandmarksController < ApplicationController
     @figure = Landmark.find(params[:id])
 
     if @landmark
-      erb :'/figures/edit'
+      erb :'/landmark/edit'
     else
       redirect to ':/figures'
     end
