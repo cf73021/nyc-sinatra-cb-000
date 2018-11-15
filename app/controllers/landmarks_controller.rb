@@ -45,7 +45,7 @@ class LandmarksController < ApplicationController
     redirect to "/landmarks/#{@landmark.id}"
   end
 
-  patch '/figures/:id' do
+  patch '/landmarks/:id' do
     @figure = Figure.find(params[:id])
     @figure.name = params["figure"]["name"]
     title = params["title"]
